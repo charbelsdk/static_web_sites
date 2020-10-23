@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const App = () => {
+      return (
+        <Form />
+      )
+    }
+    const Form = () => {
+      const myStyle = {
+        width: "60%",
+        margin: "auto",
+        borderRadius: "5px",
+        padding: "40px 30px",
+        backgroundColor: "rgba(46, 43, 71, 0.9)",
+        color: "white"
+      }
+      return (
+        <div>
+
+          <HeaderForm />
+          <form style={myStyle}>
+            <TextInput />
+            <SelectTag />
+            <RadioSelect />
+            <SelectTag1 />
+            <CheckBox />
+            <TextArea />
+            <Button />
+          </form>
+        </div>
+      )
+    }
+    const HeaderForm = () => {
+      return (
+        <div style={{ margin: "30px 0px" }}>
+          <h3 className="text-center">Bootstrap Survey Form</h3>
+          <h5 className="text-center"><em>Thank you for taking the time to help us improve the platform</em> </h5>
+        </div>
+      )
+    }
+    const TextInput = () => {
+
+      return (
+        <div>
+          <div className="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Please enter your name" />
+          </div>
+          <div className="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="name" placeholder="Please enter your email" aria-describedby="emailHelp" />
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+        </div>
+      )
+    }
+
+    const SelectTag = () => {
+      return (
+        <div className="form-group">
+          <label for="selectTag">Which option best describes your current role?</label>
+          <select className="form-control" id="selectTag">
+            <option selected disabled>Select a role</option>
+            <option value="student">Student</option>
+            <option value="fulltimejob">Full Time Job</option>
+            <option value="parttimejob">Part Time Job</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      )
+    }
+    const RadioSelect = () => {
+      return (
+        <div className="form-group">
+          <label>Would you recommend freeCodeCamp to a friend?</label>
+          <div className="custom-control custom-radio">
+            <input type="radio" id="radio1" class="custom-control-input" name="radio" />
+            <label for="radio1" class="custom-control-label"> Definitly</label>
+          </div>
+          <div className="custom-control custom-radio">
+            <input type="radio" id="radio2" class="custom-control-input" name="radio" />
+            <label for="radio2" class="custom-control-label"> Maybe</label>
+          </div>
+          <div className="custom-control custom-radio">
+            <input type="radio" id="radio3" class="custom-control-input" name="radio" />
+            <label for="radio3" class="custom-control-label"> Not Sure</label>
+          </div>
+        </div>
+      )
+    }
+    const SelectTag1 = () => {
+      return (
+        <div className="form-group">
+          <label for="selectTag">What is your favorite feature of freeCodeCamp? </label>
+          <select className="form-control" id="selectTag">
+            <option selected disabled>Select an option</option>
+            <option value="challenges">Challenges</option>
+            <option value="project">Project</option>
+            <option value="community">Community</option>
+            <option value="opensource">Open Source</option>
+          </select>
+        </div>
+      )
+    }
+
+    const CheckBox = () => {
+      const options = [
+        'Front-end Projects', 'Back-end Projects', 'Data Visualization', 'Challenges', 'Open Source',
+        'Community', 'Videos'
+      ]
+
+      return (
+        <div className="form-group">
+          <label for="checkbox">What would you like to see improved? (<small>Check all that apply</small>)</label>
+          <div id="checkbox" >
+            {
+              options.map(item => (
+                <div class="form-check">
+                  <input type="checkbox" className="form-check-input" value={item.trim().toLowerCase()} id={item.trim().toLowerCase()} />
+                  <label for={item.trim().toLowerCase()} className="form-check-label">{item}</label>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+      )
+    }
+
+    const TextArea = () => {
+      return (
+        <div className="form-group">
+          <label for="textarea">Any comments or suggestions?</label>
+          <textarea id="textarea" className="form-control" rows="3"></textarea>
+        </div>
+      )
+    }
+
+    const Button = () => {
+      return (
+        <button type="submit" class="btn btn-success btn-block" style={{ marginTop: "50px" }}>Submit</button>
+      )
+    }
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+
+  </script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+</body>
+
+</html>
